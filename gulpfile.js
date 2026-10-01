@@ -30,12 +30,16 @@ function scripts() {
         .pipe(gulp.dest('dist/js'));
 }
 
-async function images() {
-    const imagemin = (await import('gulp-imagemin')).default;
-    return gulp.src('src/app/imgs/**/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('dist/imgs'));
+function images() {
+    return gulp.src('src/app/imgs/**/*', {encoding: false})
+    .pipe(gulp.dest('dist/imgs'));
 }
+// async function images() {
+//     const imagemin = (await import('gulp-imagemin')).default;
+//     return gulp.src('src/app/imgs/**/*')
+//         .pipe(imagemin())
+//         .pipe(gulp.dest('dist/imgs'));
+// }
 
 function reload(done) {
     browserSync.reload();

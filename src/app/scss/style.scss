@@ -1,0 +1,17 @@
+$primary-color: #3498db;
+$text-color: #2c3e50;
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: $text-color;
+
+    h1{
+        color: $primary-color;
+    }
+
+    p{
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
