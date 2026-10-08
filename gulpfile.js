@@ -20,7 +20,8 @@ function buildStyles() {
     return gulp.src('src/app/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(cssnano())
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('dist/css'))
+        .pipe(browserSync.stream({ match: '**/*.css' }));
 };
 
 function scripts() {
@@ -52,7 +53,7 @@ function watchFiles() {
     });
 
     gulp.watch('src/app/**/*.html', gulp.series(HTML, reload));
-    gulp.watch('src/app/scss/**/*.scss', buildStyles);
+    gulp.watch('src/app/scss/**/*.scss', gulp.series(buildStyles, reload));
     gulp.watch('src/app/js/**/*.js', gulp.series(scripts, reload));
     gulp.watch('src/app/imgs/**/*', images).on('change', browserSync.reload);
 }
