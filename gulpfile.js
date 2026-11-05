@@ -62,3 +62,23 @@ exports.default = gulp.series(
     gulp.parallel(HTML, buildStyles, scripts, images),
     watchFiles
 );
+
+const { src, dest, series, parallel, watch } = require('gulp');
+// ... ваші існуючі імпорти та таски з ЛР1 ...
+
+// Копіювання CSS-файлів Bootstrap
+function bootstrapCss() {
+  return src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+    .pipe(dest('dist/css'));
+}
+
+// Копіювання JS-файлів Bootstrap
+function bootstrapJs() {
+  return src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+    .pipe(dest('dist/js'));
+}
+
+// Додайте bootstrapCss та bootstrapJs до вашого підсумкового таску build/default
+exports.bootstrapCss = bootstrapCss;
+exports.bootstrapJs = bootstrapJs;
+exports.build = series(parallel(bootstrapCss, bootstrapJs /*, ваші інші таски */));

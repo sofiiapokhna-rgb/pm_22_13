@@ -1,17 +1,321 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lab1</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    @@include('components/_header.html')
+    <title>Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <h1>Текстовий заголовок</h1>
-    <p>53145</p>
-    <img src="imgs/Павутина.jpg">
-    <img src="imgs/image.png">
-    <script src="js/main.min.js"></script>
+    <style>
+        body{
+            font-family: "Poppins", sans-serif;
+            background-color: #EBEBEB;
+            margin: 0;
+            padding: 40px;
+            color: #111111;
+        }
+        .resume{
+            width: 740px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 15px 30px gray;
+        }
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 33px;
+            width: 2px;
+            background-color: #eee;
+        }
+        .header{
+            height: 273px;
+            padding: 53px 40px 40px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .header h1{
+            font-family: "Montserrat", sans-serif;
+            font-size: 60px;
+            font-weight: 500;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        .header h1 span{
+            font-weight: 700;
+        }
+        .header .job{
+            font-family: "Montserrat", sans-serif;
+            font-size: 19px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            border-top: 2px solid #eee;
+            padding-top: 10px;
+            width: calc(100% + 40px);
+        }
+        .photo{
+            position: absolute;
+            width: 270px;
+            height: 273px;
+            top: 10px;
+            right: 75px;
+            object-fit: cover;
+        }
+        .square{
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background-color: black;
+            right: 18px;
+            top: 177px;
+        }
+        .right{
+            background-color: #EBEBEB;
+            padding: 60px 35px 35px 50px;
+        }
+        .resume > .row > .col-8 {
+            flex: 0 0 62%;
+            max-width: 62%;
+        }
+
+        .resume > .row > .col-4 {
+            flex: 0 0 38%;
+            max-width: 38%;
+        }
+        .contacts{
+            background-color: #111111;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 11px;
+        }
+        .contacts h3{
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0 0 5px;
+        }
+
+        .contacts p{
+            font-family: "Poppins", sans-serif;
+            font-size: 11px;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .left-content{
+            padding: 35px 32px 40px 42px;
+        }
+
+        h2{
+            font-family: "Poppins", sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section{
+            margin-bottom: 40px;
+        }
+
+        .section p{
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .description{
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+        }
+        .experience{
+            margin-bottom: 20px;
+        }
+
+        .experience h3{
+            font-size: 13px;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+        .references{
+            display: flex;
+        }
+        .reference{
+            width: 50%;
+        }
+        .reference:first-child{
+            border-right: 1px solid gray;
+            margin-right: 20px;
+        }
+        .date{
+            color: gray;
+        }
+        .education{
+            margin-bottom: 25px;
+        }
+        .education p{
+            margin: 5px 0;
+        }
+        ul{
+            padding-left: 25px;
+            list-style-type: square;
+        }
+        li{
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="resume">
+
+        <div class="header">
+
+            <h1>
+                Laura<br>
+                <span>Parker</span>
+            </h1>
+
+            <p class="job">UI & UX DESIGNER</p>
+
+            <img class="photo" src="photo.jpg" alt="Photo">
+
+            <div class="square"></div>
+
+        </div>
+
+        <div class="row g-0">
+
+            <div class="col-8">
+
+                <div class="contacts">
+
+                    <div>
+                        <h3>Phone</h3>
+                        <p>0123 456 789</p>
+                    </div>
+
+                    <div>
+                        <h3>Email</h3>
+                        <p>uremail@namehere</p>
+                    </div>
+
+                    <div>
+                        <h3>Address</h3>
+                        <p>Your Street Address.</p>
+                    </div>
+
+                </div>
+
+                <div class="left-content">
+
+                    <div class="section">
+                        <h2>Profile</h2>
+
+                        <p class="description">
+                            Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Experience</h2>
+
+                        <div class="experience">
+                            <h3>Senior UX Designer - Present</h3>
+                            <p>Company Name / Location</p>
+                            <p class="description">
+                                Lorem Ipsum is simply dummy text of
+                                the printing and typesetting industry.
+                            </p>
+                        </div>
+
+                        <div class="experience">
+                            <h3>UX Designer - 2016</h3>
+                            <p>Company Name / Location</p>
+                            <p class="description">
+                                Lorem Ipsum is simply dummy text of
+                                the printing and typesetting industry.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Reference</h2>
+
+                        <div class="references">
+
+                            <div class="reference">
+                                <p>Senior Designer</p>
+                                <p>Jhon Ander Smith</p>
+                                <p>Company name here</p>
+                            </div>
+
+                            <div class="reference">
+                                <p>Senior Designer</p>
+                                <p>Jhon Smith</p>
+                                <p>Company name here</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-4 right">
+
+                <div class="section">
+                    <h2>Education</h2>
+
+                    <div class="education">
+                        <p class="date">2014 - 2016</p>
+                        <p>Degree / Major Name</p>
+                        <p>University name here</p>
+                    </div>
+
+                    <div class="education">
+                        <p class="date">2010 - 2014</p>
+                        <p>Degree / Major Name</p>
+                        <p>University name here</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Language</h2>
+
+                    <ul>
+                        <li>English</li>
+                        <li>French</li>
+                        <li>Spanish</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Skills</h2>
+
+                    <ul>
+                        <li>Photoshop</li>
+                        <li>Illustrator</li>
+                        <li>InDesign</li>
+                        <li>After Effects</li>
+                        <li>Sketch</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
