@@ -1,0 +1,42 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.left-content {
+    padding: 35px 32px 40px 42px;
+}
+
+.section {
+    margin-bottom: 40px;
+
+    p {
+        @include text-style(13px, 400, 1.5);
+    }
+}
+
+.description {
+    font-family: $font-roboto;
+    font-weight: 300;
+}
+
+.experience {
+    margin-bottom: 20px;
+
+    h3 {
+        font-size: 13px;
+        font-weight: normal;
+        margin-bottom: 5px;
+    }
+}
+
+.references {
+    display: flex;
+}
+
+.reference {
+    width: 50%;
+
+    &:first-child {
+        border-right: 1px solid gray;
+        margin-right: 20px;
+    }
+}

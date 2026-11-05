@@ -4,6 +4,7 @@ const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('gulp-cssnano');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 
     function HTML() {
@@ -16,13 +17,21 @@ const browserSync = require('browser-sync').create();
 
 };
 
+// function buildStyles() {
+//     return gulp.src('src/app/scss/**/*.scss')
+//         .pipe(sass().on('error', sass.logError))
+//         .pipe(cssnano())
+//         .pipe(gulp.dest('dist/css'))
+//         .pipe(browserSync.stream({ match: '**/*.css' }));
+// };
 function buildStyles() {
-    return gulp.src('src/app/scss/**/*.scss')
+    return gulp.src('src/app/scss/main.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(cssnano())
+        .pipe(rename('index.min.css'))
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream({ match: '**/*.css' }));
-};
+}
 
 function scripts() {
     return gulp.src('src/app/js/**/*.js')
@@ -63,22 +72,13 @@ exports.default = gulp.series(
     watchFiles
 );
 
-const { src, dest, series, parallel, watch } = require('gulp');
-// ... ваші існуючі імпорти та таски з ЛР1 ...
-
-// Копіювання CSS-файлів Bootstrap
-function bootstrapCss() {
-  return src('node_modules/bootstrap/dist/css/bootstrap.min.css')
-    .pipe(dest('dist/css'));
+function bootstrapCSS() {
+    return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(gulp.dest('dist/css'));
 }
 
-// Копіювання JS-файлів Bootstrap
-function bootstrapJs() {
-  return src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
-    .pipe(dest('dist/js'));
+function bootstrapJS() {
+    return gulp.src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+        .pipe(gulp.dest('dist/js'));
 }
-
-// Додайте bootstrapCss та bootstrapJs до вашого підсумкового таску build/default
-exports.bootstrapCss = bootstrapCss;
-exports.bootstrapJs = bootstrapJs;
-exports.build = series(parallel(bootstrapCss, bootstrapJs /*, ваші інші таски */));
+exports.buildStyles = buildStyles;

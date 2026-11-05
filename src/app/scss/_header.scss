@@ -1,0 +1,59 @@
+@use "variables" as *;
+
+.header {
+    height: 283px;
+    padding: 53px 40px 40px;
+    position: relative;
+    box-sizing: border-box;
+
+    h1 {
+        font-family: $font-montserrat;
+        font-size: 56px;
+        font-weight: 500;
+        line-height: 1.1;
+        text-transform: uppercase;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    .job {
+        font-family: $font-montserrat;
+        font-size: 19px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        border-top: 2px solid $line-color;
+        padding-top: 10px;
+        width: calc(100% + 40px);
+    }
+
+    .photo {
+        position: absolute;
+        width: 270px;
+        height: 273px;
+        top: 10px;
+        right: 75px;
+        object-fit: cover;
+    }
+
+    .square {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        background-color: black;
+        right: 18px;
+        top: 177px;
+        z-index: 2;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 33px;
+        width: 2px;
+        background-color: $line-color;
+    }
+}

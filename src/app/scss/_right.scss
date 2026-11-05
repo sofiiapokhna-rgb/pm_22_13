@@ -1,0 +1,29 @@
+@use "variables" as *;
+
+.right {
+    background-color: $light-gray;
+    padding: 60px 35px 35px 50px;
+}
+
+.date {
+    color: gray;
+}
+
+.education {
+    margin-bottom: 25px;
+
+    p {
+        margin: 5px 0;
+    }
+}
+
+ul {
+    padding-left: 25px;
+    list-style-type: square;
+}
+
+li {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}

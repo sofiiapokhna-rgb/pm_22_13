@@ -1,0 +1,29 @@
+@use "variables" as *;
+
+%section-title {
+    font-family: $font-poppins;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+body {
+    font-family: $font-poppins;
+    background-color: $light-gray;
+    margin: 0;
+    padding: 40px;
+    color: $black;
+}
+
+.resume {
+    width: $page-width;
+    margin: auto;
+    background-color: $white;
+    box-shadow: 0 15px 30px gray;
+}
+
+h2 {
+    @extend %section-title;
+}

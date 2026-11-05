@@ -1,0 +1,24 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.contacts {
+    background-color: $black;
+    color: $white;
+    padding: $space * 2 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 11px;
+
+    h3 {
+        font-family: $font-poppins;
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0 0 5px;
+    }
+
+    p {
+        font-family: $font-poppins;
+        @include text-style(11px, 300, 1.2);
+        margin: 0;
+    }
+}
